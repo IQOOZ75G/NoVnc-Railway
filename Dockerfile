@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-
+RUN apt update && apt upgrade -y
 ENV TZ=Asia/Kolkata
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get install -y python3-pip virtualenv nano screen docker docker.io
