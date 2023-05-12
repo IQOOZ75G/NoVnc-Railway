@@ -1,4 +1,4 @@
-FROM ghcr.io/ashwinstr/ux-venom-docker:latest
+FROM ubuntu:latest
 
 RUN set -ex;\
 
