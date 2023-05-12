@@ -1,5 +1,15 @@
 FROM ubuntu:latest
 
+
+ENV TZ=Asia/Kolkata
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN apt-get update \
+ && DEBIAN_FRONTEND=noninteractive apt-get install --yes pulseaudio-utils
+
+
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN set -ex;\
 
     apt-get update;\
