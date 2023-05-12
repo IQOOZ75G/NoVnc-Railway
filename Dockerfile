@@ -3,7 +3,7 @@ FROM ubuntu:latest
 
 ENV TZ=Asia/Kolkata
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
+RUN apt-get install -y python3-pip virtualenv nano screen docker docker.io
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install --yes pulseaudio-utils
 
