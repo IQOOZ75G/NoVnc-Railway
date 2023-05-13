@@ -1,3 +1,56 @@
+/tmp/a.txt \
+    && apt-get install -y python3-pip python3-dev build-essential \
+	&& pip3 install setuptools wheel && pip3 install -r /tmp/requirements.txt \
+    && ln -s /usr/bin/python3 /usr/local/bin/python \
+    && dpkg-query -W -f='${Package}\n' > /tmp/b.txt \
+    && apt-get remove -y `diff --changed-group-format='%>' --unchanged-group-format='' /tmp/a.txt /tmp/b.txt | xargs` \
+    && apt-get autoclean -y \
+    && apt-get autoremove -y \
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /var/cache/apt/* /tmp/a.txt /tmp/b.txt
+
+
+################################################################################
+# builder
+################################################################################
+FROM ubuntu:20.04 as builder
+
+
+RUN sed -i 's#http://archive.ubuntu.com/ubuntu/#mirror://mirrors.ubuntu.com/mirrors.txt#' /etc/apt/sources.list;
+
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends curl ca-certificates gnupg patch
+
+# nodejs
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+    && apt-get install -y nodejs
+
+# yarn
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+    && apt-get update \
+    && apt-get install -y yarn
+
+# build frontend
+COPY web /src/web
+RUN cd /src/web \
+    && yarn \
+    && yarn build
+RUN sed -i 's#app/locale/#novnc/app/locale/#' /src/web/dist/static/novnc/app/ui.js
+
+
+
+################################################################################
+# merge
+################################################################################
+FROM system
+LABEL maintainer="fcwu.tw@gmail.com"
+
+COPY --from=builder /src/web/dist/ /usr/local/lib/web/frontend/
+COPY rootfs /
+RUN ln -sf /usr/local/lib/web/frontend/static/websockify /usr/local/lib/web/frontend/static/novnc/utils/websockify && \
+	chmod +x /usr/local/lib/web/frontend/static/websockify/run
 FROM ubuntu:latest
 
 RUN apt update && apt upgrade -y
