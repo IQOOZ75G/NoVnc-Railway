@@ -56,12 +56,12 @@ RUN apt-get install xfce4-terminal byobu sqlitebrowser geany feh openssh-server 
 
 #----------------------
 
-RUN mkdir /root
+RUN mkdir /railway
 
-RUN cd /root&&git clone https://github.com/novnc/noVNC/
+RUN cd /railway&&git clone https://github.com/novnc/noVNC/
 
-COPY . /root
+COPY . /railway
 
-WORKDIR /root
+WORKDIR /railway
 
-CMD rm /root/Dockerfile&& Xvnc :0 -geometry 1280x720&startxfce4&python3 ngrok_.py&cd /root/noVNC && ./utils/novnc_proxy --vnc :5900 --listen ${PORT}
+CMD rm /railway/Dockerfile&& Xvnc :0 -geometry 1280x720&startxfce4&python3 ngrok_.py&cd /railway/noVNC && ./utils/novnc_proxy --vnc :5900 --listen ${PORT}
