@@ -56,9 +56,9 @@ RUN apt-get install xfce4-terminal byobu sqlitebrowser geany feh openssh-server 
 
 #----------------------
 
-RUN mkdir /work
+RUN mkdir /root
 
-RUN cd /work&&git clone https://github.com/novnc/noVNC/
+RUN cd /root&&git clone https://github.com/novnc/noVNC/
 
 COPY . /work
 
