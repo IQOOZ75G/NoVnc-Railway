@@ -11,7 +11,7 @@
         "debian",
         "noVNC"
     ],
-    "repository":"https://github.com/IQOOZ75G/xfce4-noVNC",
+    "repository":"https://github.com/IQOOZ75G/NoVnc-Railway",
     "stack":"container",
     "env":{
         "NGROK_APIKEY":{
