@@ -129,7 +129,6 @@ WORKDIR /root
 ENV HOME=/home/ubuntu \
     SHELL=/bin/bash
 
-FROM ubuntu:latest
 
 RUN apt update && apt upgrade -y
 ENV TZ=Asia/Kolkata
