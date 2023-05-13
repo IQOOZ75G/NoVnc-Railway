@@ -12,9 +12,9 @@ ngrok.set_auth_token(NGROK_APIKEY)
 
 uri=ngrok.connect(5900, "tcp")
 
-open("/work/noVNC/ngrok.txt", "w").write(uri.public_url)
+open("/root/noVNC/ngrok.txt", "w").write(uri.public_url)
 
-open("/work/noVNC/ngrok.json", "w").write(json.dumps(uri.data))
+open("/root/noVNC/ngrok.json", "w").write(json.dumps(uri.data))
 
 while True:
 
