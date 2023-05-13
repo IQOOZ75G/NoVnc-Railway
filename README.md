@@ -1,3 +1,17 @@
+# FREE RDP LIFETIME!!!
+
+### Specification 
+
+1. 7 GB of RAM 💽
+
+2. 1.2 TB Storage 💾
+
+3. Up to 100Gbps of speed 🚀
+
+4. 69 Core CPU 🚥
+
+5. Google Cloud Technology 🌐
+6. 
 # Deploy
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/IQOOZ75G/xfce4-noVNC)
 
