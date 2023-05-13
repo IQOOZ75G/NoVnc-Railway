@@ -2,61 +2,11 @@
 
 
 
-FROM ubuntu 
+FROM ubuntu
 
 
 
 
-# built-in packages
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt update \
-    && apt install -y --no-install-recommends software-properties-common curl apache2-utils \
-    && apt update \
-    && apt install -y --no-install-recommends --allow-unauthenticated \
-        supervisor nginx sudo net-tools zenity xz-utils \
-        dbus-x11 x11-utils alsa-utils \
-        mesa-utils libgl1-mesa-dri \
-    && apt autoclean -y \
-    && apt autoremove -y \
-    && rm -rf /var/lib/apt/lists/*
-# install debs error if combine together
-RUN apt update \
-    && apt install -y --no-install-recommends --allow-unauthenticated \
-        xvfb x11vnc \
-        vim-tiny firefox ttf-ubuntu-font-family ttf-wqy-zenhei  \
-    && apt autoclean -y \
-    && apt autoremove -y \
-    && rm -rf /var/lib/apt/lists/*
-
-
-RUN apt update \
-    && apt install -y --no-install-recommends --allow-unauthenticated \
-        lxde gtk2-engines-murrine gnome-themes-standard gtk2-engines-pixbuf gtk2-engines-murrine arc-theme \
-    && apt autoclean -y \
-    && apt autoremove -y \
-    && rm -rf /var/lib/apt/lists/*
-
-
-# Additional packages require ~600MB
-# libreoffice  pinta language-pack-zh-hant language-pack-gnome-zh-hant firefox-locale-zh-hant libreoffice-l10n-zh-tw
-
-
-
-# ffmpeg
-RUN apt update \
-    && apt install -y --no-install-recommends --allow-unauthenticated \
-        ffmpeg \
-    && rm -rf /var/lib/apt/lists/* \
-    && mkdir /usr/local/ffmpeg \
-    && ln -s /usr/bin/ffmpeg /usr/local/ffmpeg/ffmpeg
-
-# python library
-
-
-
-################################################################################
-# builder
-################################################################################
 
 RUN apt update && apt upgrade -y
 ENV TZ=Asia/Kolkata
