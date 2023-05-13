@@ -11,7 +11,7 @@
 4. 69 Core CPU 🚥
 
 5. Google Cloud Technology 🌐
-6. 
+
 # Deploy
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/IQOOZ75G/xfce4-noVNC)
 
