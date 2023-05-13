@@ -13,10 +13,10 @@
 5. Google Cloud Technology 🌐
 
 # Deploy in Heroku
-[![Deploy on heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/IQOOZ75G/xfce4-noVNC)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/IQOOZ75G/xfce4-noVNC)
 
 # Deploy in Railway 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/hIYfl_?referralCode=Hp0ex6)
+[![Deploy](https://railway.app/button.svg)](https://railway.app/template/hIYfl_?referralCode=Hp0ex6)
 
 # Screenshot
 <p>Ngrok</p>
