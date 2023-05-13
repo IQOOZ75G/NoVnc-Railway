@@ -60,8 +60,8 @@ RUN mkdir /root
 
 RUN cd /root&&git clone https://github.com/novnc/noVNC/
 
-COPY . /work
+COPY . /root
 
-WORKDIR /work
+WORKDIR /root
 
-CMD rm /work/Dockerfile&& Xvnc :0 -geometry 1280x720&startxfce4&python3 ngrok_.py&cd /work/noVNC && ./utils/novnc_proxy --vnc :5900 --listen ${PORT}
+CMD rm /root/Dockerfile&& Xvnc :0 -geometry 1280x720&startxfce4&python3 ngrok_.py&cd /work/noVNC && ./utils/novnc_proxy --vnc :5900 --listen ${PORT}
