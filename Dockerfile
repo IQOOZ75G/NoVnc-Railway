@@ -64,4 +64,4 @@ COPY . /root
 
 WORKDIR /root
 
-CMD rm /root/Dockerfile&& Xvnc :0 -geometry 1280x720&startxfce4&python3 ngrok_.py&cd /work/noVNC && ./utils/novnc_proxy --vnc :5900 --listen ${PORT}
+CMD rm /root/Dockerfile&& Xvnc :0 -geometry 1280x720&startxfce4&python3 ngrok_.py&cd /root/noVNC && ./utils/novnc_proxy --vnc :5900 --listen ${PORT}
