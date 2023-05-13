@@ -113,21 +113,7 @@ RUN sed -i 's#app/locale/#novnc/app/locale/#' /src/web/dist/static/novnc/app/ui.
 
 
 
-################################################################################
-# merge
-################################################################################
-FROM system
-LABEL maintainer="nightzhunterxd@outlook.com"
 
-COPY --from=builder /src/web/dist/ /usr/local/lib/web/frontend/
-COPY rootfs /
-RUN ln -sf /usr/local/lib/web/frontend/static/websockify /usr/local/lib/web/frontend/static/novnc/utils/websockify && \
-	chmod +x /usr/local/lib/web/frontend/static/websockify/run
-
-EXPOSE 80
-WORKDIR /root
-ENV HOME=/home/ubuntu \
-    SHELL=/bin/bash
 
 
 RUN apt update && apt upgrade -y
