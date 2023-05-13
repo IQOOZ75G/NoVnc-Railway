@@ -104,12 +104,6 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
     && apt-get update \
     && apt-get install -y yarn
 
-# build frontend
-COPY web /src/web
-RUN cd /src/web \
-    && yarn \
-    && yarn build
-RUN sed -i 's#app/locale/#novnc/app/locale/#' /src/web/dist/static/novnc/app/ui.js
 
 
 
