@@ -1,11 +1,6 @@
 
 
 
-# Built with arch: amd64 flavor: lxde image: ubuntu:20.04
-#
-################################################################################
-# base system
-################################################################################
 
 FROM ubuntu 
 
@@ -62,26 +57,6 @@ RUN apt update \
 ################################################################################
 # builder
 ################################################################################
-################################################################################
-
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends curl ca-certificates gnupg patch
-
-# nodejs
-RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
-    && apt-get install -y nodejs
-
-# yarn
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
-    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
-    && apt-get update \
-    && apt-get install -y yarn
-
-
-
-
-
-
 
 RUN apt update && apt upgrade -y
 ENV TZ=Asia/Kolkata
