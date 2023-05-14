@@ -18,6 +18,9 @@
 # Deploy in Railway 
 [![Deploy](https://railway.app/button.svg)](https://railway.app/template/hIYfl_?referralCode=Hp0ex6)
 
+# ENV 
+NGROK_APIKEY
+
 # Screenshot
 <p>Ngrok</p>
 <img src="image/1.png">
